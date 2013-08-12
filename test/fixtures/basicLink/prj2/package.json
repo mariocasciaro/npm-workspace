@@ -1,0 +1,11 @@
+{
+  "name": "prj2",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "lodash": "*"
+  },
+  "peerDependencies": {
+    "lodash": "*"
+  }
+}

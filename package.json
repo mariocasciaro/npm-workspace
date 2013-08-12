@@ -1,0 +1,40 @@
+{
+  "name": "npm-workspace",
+  "description": "A cli utility to simplify link-ing and install-ing npm packages locally.",
+  "version": "0.0.1",
+  "private": "true",
+  "homepage": "https://github.com/mariocasciaro/npm-workspace",
+  "author": {
+    "name": "Mario Casciaro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mariocasciaro/npm-workspace"
+  },
+  "bugs": {
+    "url": "https://github.com/mariocasciaro/npm-workspace/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mariocasciaro/npm-workspace/blob/master/LICENSE"
+    }
+  ],
+  "bin": {
+    "grunt": "bin/npm-workspace"
+  },
+  "preferGlobal": true,
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "commander": "~2.0.0",
+    "lodash": "~1.3.1",
+    "rimraf": "~2.2.2",
+    "when": "~2.2.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.12.0",
+    "chai": "~1.7.2"
+  }
+}
