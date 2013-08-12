@@ -20,8 +20,11 @@
       "url": "https://github.com/mariocasciaro/npm-workspace/blob/master/LICENSE"
     }
   ],
+  "scripts": {
+    "test": "node_modules/.bin/mocha test/*.js -t 30000 --reporter spec"
+  },
   "bin": {
-    "grunt": "bin/npm-workspace"
+    "npm-workspace": "bin/npm-workspace"
   },
   "preferGlobal": true,
   "engines": {
@@ -31,7 +34,8 @@
     "commander": "~2.0.0",
     "lodash": "~1.3.1",
     "rimraf": "~2.2.2",
-    "when": "~2.2.1"
+    "when": "~2.2.1",
+    "ncp": "~0.4.2"
   },
   "devDependencies": {
     "mocha": "~1.12.0",
