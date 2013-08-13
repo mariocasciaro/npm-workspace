@@ -14,7 +14,7 @@ In short, if you use `npm link` a lot, and with not much success.
 
 Alternatively, if:
 
-- When developing, you put all your npm modules in a directory (**workspace**) and you expect they will link together magically.
+- When developing, you put all your npm modules in a directory, aka **workspace**, and you expect they will link together magically.
 - You have a number of **private** npm and you use `npm link` to link them together.
 - You have **local working copies** fo your public npm modules, but you prefer to `link` them when developing.
 - You also have **peerDependencies**, and `npm link` doesn't exactly work well with that.
@@ -129,7 +129,7 @@ npm-workspace clean
 
 - It finds and parse the links from the nearest `workspace.json` up in the current directory tree.
 - For each module:
-    - If a link was specified in `workspace.json`: creates a **local symbolyc link** (as opposed to `npm link` that creates a global link) for each module in `dependencies` and  `devDependencies`
+    - If a link was specified in `workspace.json`: creates a **local symbolyc link** (as opposed to `npm link` that creates a global link) for each matching module in `dependencies` and  `devDependencies`
     - Otherwise, `npm install` all the remaining modules
 - For each module linked, install or link its `peerDependencies` (recursively)
 
