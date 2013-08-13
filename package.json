@@ -1,7 +1,7 @@
 {
   "name": "npm-workspace",
   "description": "A cli utility to simplify link-ing and install-ing npm packages locally.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": "true",
   "homepage": "https://github.com/mariocasciaro/npm-workspace",
   "author": {
