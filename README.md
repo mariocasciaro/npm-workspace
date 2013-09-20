@@ -1,4 +1,4 @@
-[![NPM](https://nodei.co/npm/npm-workspace.png)](https://nodei.co/npm/npm-workspace/)
+[![NPM](https://nodei.co/npm/npm-workspace.png?downloads=true)](https://nodei.co/npm/npm-workspace/)
 
 [![Build Status](https://travis-ci.org/mariocasciaro/npm-workspace.png)](https://travis-ci.org/mariocasciaro/npm-workspace)
 
