@@ -3,4 +3,5 @@ node_modules
 .settings
 .idea
 npm-debug.log
-tmp
+generated
+test/tmp

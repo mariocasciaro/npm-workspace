@@ -1,12 +1,14 @@
 [![NPM](https://nodei.co/npm/npm-workspace.png?downloads=true)](https://nodei.co/npm/npm-workspace/)
 
-[![Build Status](https://travis-ci.org/mariocasciaro/npm-workspace.png)](https://travis-ci.org/mariocasciaro/npm-workspace)
+[![Build Status](https://travis-ci.org/mariocasciaro/npm-workspace.png)](https://travis-ci.org/mariocasciaro/npm-workspace) [![Dependency Status](https://david-dm.org/mariocasciaro/npm-workspace.png)](https://david-dm.org/mariocasciaro/npm-workspace)
 
 # npm-workspace
 
 A command line utility to ease the `link`-ing of local npm modules,
 especially when `link`-ing modules with `peerDependencies`.
 
+Use this in combination with [git-workspace](https://github.com/mariocasciaro/git-workspace) if you want to manage
+multiple repositories for each project/module (e.g. a private and a public repo)
 
 ## This is for you if
 
