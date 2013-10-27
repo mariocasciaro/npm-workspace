@@ -26,14 +26,11 @@
     "npm-workspace": "bin/npm-workspace"
   },
   "preferGlobal": true,
-  "engines": {
-    "node": ">= 0.8.0"
-  },
   "dependencies": {
     "commander": "~2.0.0",
-    "lodash": "~2.0.0",
+    "lodash": "~2.2.0",
     "rimraf": "~2.2.2",
-    "when": "~2.4.0",
+    "when": "~2.5.0",
     "ncp": "~0.4.2"
   },
   "devDependencies": {

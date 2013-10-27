@@ -13,14 +13,14 @@ var FIXTURES_DIR = path.resolve(__dirname, "fixtures");
 var SANDBOX_DIR = path.resolve(__dirname, "tmp");
 
 
-function checkPrj1Install() {
+function checkPrj1Install(isLink) {
   var prjRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest/prj1");
   //the main dep/linked
-  expect(fs.lstatSync(prjRoot + "/node_modules/prj2").isSymbolicLink()).to.be.true;
+  expect(fs.lstatSync(prjRoot + "/node_modules/prj2").isSymbolicLink()).to.be[isLink];
   
   //is isntalled?
   expect(fs.existsSync(prjRoot + "/node_modules/prj2/node_modules/lodash")).to.be.true;
-  expect(fs.lstatSync(prjRoot + "/node_modules/prj2/node_modules/prj3").isSymbolicLink()).to.be.true;
+  expect(fs.lstatSync(prjRoot + "/node_modules/prj2/node_modules/prj3").isSymbolicLink()).to.be[isLink];
   
   //a peer dep
   expect(fs.existsSync(prjRoot + "/node_modules/graceful-fs")).to.be.true;
@@ -28,6 +28,7 @@ function checkPrj1Install() {
   
   //a recursive peer
   expect(fs.existsSync(prjRoot + "/node_modules/prj3")).to.be.true;
+  expect(fs.lstatSync(prjRoot + "/node_modules/prj3").isSymbolicLink()).to.be[isLink];
   //is isntalled?
   expect(fs.existsSync(prjRoot + "/node_modules/prj3/node_modules/when")).to.be.true;
   
@@ -52,7 +53,7 @@ describe('npm-workspace install', function() {
   it('should install and link a module (programmatically)', function(done) {
     var prjRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest/prj1");
     npm_workspace.install(prjRoot).then(function() {
-      checkPrj1Install();
+      checkPrj1Install("true");
       done();
     }).otherwise(done);
   });
@@ -66,7 +67,7 @@ describe('npm-workspace install', function() {
       if(code !== 0) {
         done(new Error('Wrong code returned ' + code));
       } else {
-        checkPrj1Install();
+        checkPrj1Install("true");
         done();
       }
     });
@@ -76,7 +77,7 @@ describe('npm-workspace install', function() {
   it('should install and link a workspace (programmatically)', function(done) {
     var wsRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest");
     npm_workspace.install(wsRoot).then(function() {
-      checkPrj1Install();
+      checkPrj1Install("true");
       //prj4 is disconnected from others
       checkPrj4Install();
       done();
@@ -92,7 +93,25 @@ describe('npm-workspace install', function() {
       if(code !== 0) {
         done(new Error('Wrong code returned ' + code));
       } else {
-        checkPrj1Install();
+        checkPrj1Install("true");
+        //prj4 is disconnected from others
+        checkPrj4Install();
+        done();
+      }
+    });
+  });
+
+
+  it('should install and copy modules from a workspace (command line)', function(done) {
+    var wsRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest");
+    var proc = spawn(NPM_WORKSPACE_EXE, ['install', '-c'], {cwd: wsRoot});
+    proc.stdout.pipe(process.stdout);
+    proc.stderr.pipe(process.stderr);
+    proc.on('close', function (code) {
+      if(code !== 0) {
+        done(new Error('Wrong code returned ' + code));
+      } else {
+        checkPrj1Install("false");
         //prj4 is disconnected from others
         checkPrj4Install();
         done();
@@ -112,7 +131,7 @@ describe('npm-workspace clean', function() {
   it('should clean a module (programmatically)', function(done) {
     var prjRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest/prj1");
     npm_workspace.install(prjRoot).then(function() {
-      checkPrj1Install();
+      checkPrj1Install("true");
     }).then(function() {
       return npm_workspace.clean(prjRoot);
     }).then(function() {
@@ -125,7 +144,7 @@ describe('npm-workspace clean', function() {
   it('should clean a module (command line)', function(done) {
     var prjRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest/prj1");
     npm_workspace.install(prjRoot).then(function() {
-      checkPrj1Install();
+      checkPrj1Install("true");
     }).then(function() {
       var proc = spawn(NPM_WORKSPACE_EXE, ['clean'], {cwd: prjRoot});
       proc.stdout.pipe(process.stdout);
@@ -145,7 +164,7 @@ describe('npm-workspace clean', function() {
   it('should clean a workspace (programmatically)', function(done) {
     var wsRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest");
     npm_workspace.install(wsRoot).then(function() {
-      checkPrj1Install();
+      checkPrj1Install("true");
       //prj4 is disconnected from others
       checkPrj4Install();
     }).then(function() {
