@@ -29,7 +29,7 @@ function checkPrj1Install(isLink) {
   //a recursive peer
   expect(fs.existsSync(prjRoot + "/node_modules/prj3")).to.be.true;
   expect(fs.lstatSync(prjRoot + "/node_modules/prj3").isSymbolicLink()).to.be[isLink];
-  //is isntalled?
+  //is installed?
   expect(fs.existsSync(prjRoot + "/node_modules/prj3/node_modules/when")).to.be.true;
   
   //a 2 level recursive peer

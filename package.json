@@ -31,7 +31,8 @@
     "lodash": "~2.2.0",
     "rimraf": "~2.2.2",
     "when": "~2.5.0",
-    "ncp": "~0.4.2"
+    "ncp": "~0.4.2",
+    "stream-buffers": "~0.2.5"
   },
   "devDependencies": {
     "mocha": "~1.12.0",
