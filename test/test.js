@@ -104,7 +104,7 @@ describe('npm-workspace install', function() {
 
   it('should install and copy modules from a workspace (command line)', function(done) {
     var wsRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest");
-    var proc = spawn(NPM_WORKSPACE_EXE, ['install', '-c'], {cwd: wsRoot});
+    var proc = spawn(NPM_WORKSPACE_EXE, ['install', '-c', '--remove-git'], {cwd: wsRoot});
     proc.stdout.pipe(process.stdout);
     proc.stderr.pipe(process.stderr);
     proc.on('close', function (code) {
