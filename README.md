@@ -12,7 +12,7 @@ multiple repositories for each project/module (e.g. a private and a public repo)
 
 ## This is for you if
 
-In short, if you use `npm link` a lot, and with not much success.
+In short, if you use `npm link` a lot.
 
 Alternatively, if:
 
@@ -127,6 +127,23 @@ cd myNodeJsWorkspace
 npm-workspace clean
 ```
 
+## Package an app for production
+
+When you are ready to deploy youtr app, you can package all your modules for production, including all your private/local only modules. Just use these 3 options:
+
+* `-c`: Copy the packages into `node_modules` instead of linking them
+* `-g`: Remove `.git` directories from dependencies while copying. This is so you can package your production app under a new repo (e.g. for use in a PaaS)
+* `-p`: Installs only production dependencies (e.g. ignores `devDependencies`)
+
+__Example__
+```sh
+cd myNodeJsWorkspace/yourapp
+npm-workspace install -cgp
+```
+
+Your app is not ready yo deploy.
+
+
 ## Under the hood
 
 - It finds and parse the links from the nearest `workspace.json` up in the current directory tree.
@@ -137,6 +154,9 @@ npm-workspace clean
 
 ## This is NOT
 
-- The ultimate solution to your Node.js develompent workflow/private modules/deployment/etc/etc/etc/
-- A tool to use in production (at least for now)
+- The ultimate solution to your Node.js development workflow/private modules/deployment/etc/etc/etc/
+
+-----
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mariocasciaro/npm-workspace/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
