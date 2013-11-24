@@ -20,7 +20,7 @@
     }
   ],
   "scripts": {
-    "test": "node_modules/.bin/mocha test/*.js -t 30000 --reporter spec"
+    "test": "node_modules/mocha/bin/_mocha test/*.js -t 30000 --reporter spec"
   },
   "bin": {
     "npm-workspace": "bin/npm-workspace"
