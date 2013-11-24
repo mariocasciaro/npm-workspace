@@ -7,9 +7,6 @@
 A command line utility to ease the `link`-ing of local npm modules,
 especially when `link`-ing modules with `peerDependencies`.
 
-Use this in combination with [git-workspace](https://github.com/mariocasciaro/git-workspace) if you want to manage
-multiple repositories for each project/module (e.g. a private and a public repo)
-
 ## This is for you if
 
 In short, if you use `npm link` a lot.

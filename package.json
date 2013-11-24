@@ -28,9 +28,9 @@
   "preferGlobal": true,
   "dependencies": {
     "commander": "~2.0.0",
-    "lodash": "~2.2.0",
+    "lodash": "~2.3.0",
     "rimraf": "~2.2.2",
-    "when": "~2.5.0",
+    "when": "~2.6.0",
     "ncp": "~0.4.2",
     "stream-buffers": "~0.2.5"
   },
