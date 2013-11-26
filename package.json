@@ -32,7 +32,8 @@
     "rimraf": "~2.2.2",
     "when": "~2.6.0",
     "ncp": "~0.4.2",
-    "stream-buffers": "~0.2.5"
+    "spawned": "~0.1.0",
+    "through2": "~0.2.3"
   },
   "devDependencies": {
     "mocha": "~1.12.0",
