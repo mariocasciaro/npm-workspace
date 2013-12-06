@@ -124,13 +124,13 @@ cd myNodeJsWorkspace
 npm-workspace clean
 ```
 
-## Package an app for production
+## Package an app for deployment
 
 When you are ready to deploy youtr app, you can package all your modules for production, including all your private/local only modules. Just use these 3 options:
 
 * `-c`: Copy the packages into `node_modules` instead of linking them
 * `-g`: Remove `.git` directories from dependencies while copying. This is so you can package your production app under a new repo (e.g. for use in a PaaS)
-* `-p`: Installs only production dependencies (e.g. ignores `devDependencies`)
+* `-p`: Installs only production dependencies (ignores `devDependencies`)
 
 __Example__
 ```sh
@@ -138,14 +138,14 @@ cd myNodeJsWorkspace/yourapp
 npm-workspace install -cgp
 ```
 
-Your app is not ready yo deploy.
+Your app is now ready for deployment.
 
 
 ## Under the hood
 
 - It finds and parse the links from the nearest `workspace.json` up in the current directory tree.
 - For each module:
-    - If a link was specified in `workspace.json`: creates a **local symbolyc link** (as opposed to `npm link` that creates a global link) for each matching module in `dependencies` and  `devDependencies`
+    - If a link was specified in `workspace.json`: creates a **local symbolic link** (as opposed to `npm link` that creates a global link) for each matching module in `dependencies` and  `devDependencies`
     - Otherwise, `npm install` all the remaining modules
 - For each module linked, install or link its `peerDependencies` (recursively)
 
