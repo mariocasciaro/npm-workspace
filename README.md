@@ -1,8 +1,8 @@
-[![NPM](https://nodei.co/npm/npm-workspace.png?downloads=true)](https://nodei.co/npm/npm-workspace/)
+[![NPM version](https://badge.fury.io/js/npm-workspace.png)](http://badge.fury.io/js/npm-workspace)
+[![Build Status](https://travis-ci.org/mariocasciaro/npm-workspace.png)](https://travis-ci.org/mariocasciaro/npm-workspace)
+[![Dependency Status](https://gemnasium.com/mariocasciaro/npm-workspace.png)](https://gemnasium.com/mariocasciaro/npm-workspace)
 
-[![Build Status](https://travis-ci.org/mariocasciaro/npm-workspace.png)](https://travis-ci.org/mariocasciaro/npm-workspace) [![Dependency Status](https://david-dm.org/mariocasciaro/npm-workspace.png)](https://david-dm.org/mariocasciaro/npm-workspace)
-
-# npm-workspace
+# Synopsis
 
 A command line utility to ease the `link`-ing of local npm modules,
 especially when `link`-ing modules with `peerDependencies`.
