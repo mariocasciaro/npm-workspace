@@ -30,10 +30,10 @@
     "commander": "~2.1.0",
     "lodash": "~2.4.1",
     "rimraf": "~2.2.2",
-    "when": "~2.7.0",
+    "when": "~2.7.1",
     "ncp": "~0.4.2",
-    "spawned": "~0.1.0",
-    "through2": "~0.2.3"
+    "spawned": "~0.1.1",
+    "through2": "~0.3.0"
   },
   "devDependencies": {
     "mocha": "~1.15.1",
