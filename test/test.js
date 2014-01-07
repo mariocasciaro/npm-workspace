@@ -55,7 +55,7 @@ describe('npm-workspace install', function() {
     npm_workspace.install(prjRoot).then(function() {
       checkPrj1Install("true");
       done();
-    }).otherwise(done);
+    }).catch(done);
   });
   
   it('should install and link a module (command line)', function(done) {
@@ -81,7 +81,7 @@ describe('npm-workspace install', function() {
       //prj4 is disconnected from others
       checkPrj4Install();
       done();
-    }).otherwise(done);
+    }).catch(done);
   });
   
   it('should install and link a workspace (command line)', function(done) {
@@ -137,7 +137,7 @@ describe('npm-workspace clean', function() {
     }).then(function() {
       expect(fs.existsSync(prjRoot + "/node_modules")).to.be.false;
       done();
-    }).otherwise(done);
+    }).catch(done);
   });
   
   
@@ -157,7 +157,7 @@ describe('npm-workspace clean', function() {
           done();
         }
       });
-    }).otherwise(done);
+    }).catch(done);
   });
   
   
@@ -177,6 +177,6 @@ describe('npm-workspace clean', function() {
       });
       
       done();
-    }).otherwise(done);
+    }).catch(done);
   });
 });
