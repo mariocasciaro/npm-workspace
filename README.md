@@ -19,6 +19,12 @@ Alternatively, if:
 - You also have **peerDependencies**, and `npm link` doesn't exactly work well with that.
 - You ended up writing a shell script to handle any of the above, but you are not satisfied with the results.
 
+## Install
+
+```
+npm install -g npm-workspace
+```
+
 ## Typical use case
 
 ```sh
