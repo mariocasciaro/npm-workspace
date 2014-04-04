@@ -27,17 +27,17 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "commander": "~2.1.0",
+    "commander": "~2.2.0",
     "lodash": "~2.4.1",
     "rimraf": "~2.2.2",
-    "when": "~2.7.1",
-    "ncp": "~0.4.2",
+    "when": "~3.0.1",
+    "ncp": "~0.5.0",
     "spawned": "~0.1.1",
-    "through2": "~0.3.0"
+    "through2": "~0.4.1"
   },
   "devDependencies": {
-    "mocha": "~1.15.1",
-    "chai": "~1.8.1"
+    "mocha": "~1.18.2",
+    "chai": "~1.9.1"
   },
   "keywords": [
     "npm",
