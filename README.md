@@ -159,7 +159,3 @@ Your app is now ready for deployment.
 
 - The ultimate solution to your Node.js development workflow/private modules/deployment/etc/etc/etc/
 
------
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mariocasciaro/npm-workspace/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
