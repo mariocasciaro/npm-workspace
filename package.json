@@ -1,24 +1,29 @@
 {
-  "name": "nde",
-  "description": "A npm-based integrated development environment",
-  "version": "0.1.15",
-  "homepage": "https://github.com/tjwebb/npm-ide",
+  "name": "npm-workspace",
+  "description": "A cli utility to simplify link-ing and install-ing of npm packages locally.",
+  "version": "0.1.11",
+  "homepage": "https://github.com/mariocasciaro/npm-workspace",
   "author": {
-    "name": "Travis Webb"
+    "name": "Mario Casciaro"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/tjwebb/npm-ide"
+    "url": "git://github.com/mariocasciaro/npm-workspace"
   },
   "bugs": {
-    "url": "https://github.com/tjwebb/npm-ide/issues"
+    "url": "https://github.com/mariocasciaro/npm-workspace/issues"
   },
-  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mariocasciaro/npm-workspace/blob/master/LICENSE"
+    }
+  ],
   "scripts": {
     "test": "node_modules/mocha/bin/_mocha test/*.js -t 30000 --reporter spec"
   },
   "bin": {
-    "nde": "bin/npm-workspace"
+    "npm-workspace": "bin/npm-workspace"
   },
   "preferGlobal": true,
   "dependencies": {
@@ -37,13 +42,9 @@
   "keywords": [
     "npm",
     "link",
-    "ide",
-    "node",
-    "development",
     "dependencies",
     "peerDependencies",
-    "management",
-    "environment",
-    "workspace"
+    "workspace",
+    "automatic"
   ]
 }

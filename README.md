@@ -1,6 +1,6 @@
-[![NPM version](https://badge.fury.io/js/npm-ide.png)](http://badge.fury.io/js/nde)
-[![Build Status](https://travis-ci.org/tjwebb/npm-ide.png)](https://travis-ci.org/tjwebb/npm-ide)
-[![Dependency Status](https://gemnasium.com/tjwebb/nde.png)](https://gemnasium.com/tjwebb/nde)
+[![NPM version](https://badge.fury.io/js/npm-workspace.png)](http://badge.fury.io/js/npm-workspace)
+[![Build Status](https://travis-ci.org/mariocasciaro/npm-workspace.png)](https://travis-ci.org/mariocasciaro/npm-workspace)
+[![Dependency Status](https://gemnasium.com/mariocasciaro/npm-workspace.png)](https://gemnasium.com/mariocasciaro/npm-workspace)
 
 # Synopsis
 
