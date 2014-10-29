@@ -1,4 +1,4 @@
-
+// vim: noai:ts=2:sw=2
 var expect = require('chai').expect,
   npm_workspace = require('../lib/npm-workspace'),
   fs = require('fs'),
@@ -9,6 +9,14 @@ var expect = require('chai').expect,
   path = require('path');
 
 var NPM_WORKSPACE_EXE = path.resolve(__dirname, "../bin/npm-workspace");
+if (process.platform == "win32") {
+  NPM_WORKSPACE_EXE += ".bat";  // can't shebang on windows...
+  var old_spawn = spawn;
+  spawn = function(exe, args, opt) { // and can't spawn scripts
+
+    return old_spawn("cmd", [(['/c', exe].concat(args)).join(" ")], opt); // and can't pick up arguments properly :-(;
+  }
+}
 var FIXTURES_DIR = path.resolve(__dirname, "fixtures");
 var SANDBOX_DIR = path.resolve(__dirname, "tmp");
 
