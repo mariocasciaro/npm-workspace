@@ -1,6 +1,6 @@
 [![NPM version](https://badge.fury.io/js/npm-workspace.png)](http://badge.fury.io/js/npm-workspace)
 [![Build Status](https://travis-ci.org/mariocasciaro/npm-workspace.png)](https://travis-ci.org/mariocasciaro/npm-workspace)
-[![Dependency Status](https://gemnasium.com/mariocasciaro/npm-workspace.png)](https://gemnasium.com/mariocasciaro/npm-workspace)
+[![Dependency Status](https://david-dm.org/mariocasciaro/npm-workspace.svg)](https://david-dm.org/mariocasciaro/npm-workspace)
 
 # Synopsis
 
@@ -60,10 +60,10 @@ With:
   "version": "0.0.1",
   "peerDependencies": {
     "underscore": "~1.5.1",     <- Normal peer dependency, this WILL NOT be installed
-                                    in your parent module, if you 'npm link' 
+                                    in your parent module, if you 'npm link'
                                     this package (prj2)
     "prj3": "0.0.1"             <- Local peer dependency, this WILL NOT be installed
-                                    in your parent module, if you 'npm link' 
+                                    in your parent module, if you 'npm link'
                                     this package (prj2)
   }
 }
@@ -171,4 +171,3 @@ This allows mixed registry sources until `@scope`s are fixed.
 ## This is NOT
 
 - The ultimate solution to your Node.js development workflow/private modules/deployment/etc/etc/etc/
-
