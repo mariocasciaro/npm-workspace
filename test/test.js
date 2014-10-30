@@ -13,8 +13,7 @@ if (process.platform == "win32") {
   NPM_WORKSPACE_EXE += ".bat";  // can't shebang on windows...
   var old_spawn = spawn;
   spawn = function(exe, args, opt) { // and can't spawn scripts
-
-    return old_spawn("cmd", [(['/c', exe].concat(args)).join(" ")], opt); // and can't pick up arguments properly :-(;
+    return old_spawn("cmd", [(['/c', exe].concat(args)).join(" ")], opt); // and can't pick up arguments properly :-(
   }
 }
 var FIXTURES_DIR = path.resolve(__dirname, "fixtures");

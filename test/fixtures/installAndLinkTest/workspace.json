@@ -2,5 +2,8 @@
   "links": {
     "prj2": "prj2",
     "prj3": "prj3"
+  },
+  "repos": {
+    "aka-test":"https://registry.npmjs.org/"
   }
 }

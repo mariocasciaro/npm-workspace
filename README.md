@@ -146,6 +146,19 @@ npm-workspace install -cgp
 
 Your app is now ready for deployment.
 
+## Alternative registry
+
+If you have a few dependencies that come from custom registries, you can add a `repos` map to `workspace.json`:
+
+```javascript
+{
+    "links": { ... },
+    "repos": {
+        "name-of-module": "http://location.of.registry"
+    }
+}
+```
+This allows mixed registry sources until `@scope`s are fixed.
 
 ## Under the hood
 
