@@ -25,7 +25,7 @@ function checkPrj1Install(isLink) {
   //the main dep/linked
   expect(fs.lstatSync(prjRoot + "/node_modules/prj2").isSymbolicLink()).to.be[isLink];
   
-  //is isntalled?
+  //is installed?
   expect(fs.existsSync(prjRoot + "/node_modules/prj2/node_modules/lodash")).to.be.true;
   expect(fs.lstatSync(prjRoot + "/node_modules/prj2/node_modules/prj3").isSymbolicLink()).to.be[isLink];
   
@@ -48,8 +48,18 @@ function checkPrj4Install() {
   //the main dep/linked
   expect(fs.existsSync(prjRoot + "/node_modules/when")).to.be.true;
 }
-  
-  
+
+function checkRecursiveInstall(wanted) {
+  var prjRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest/recurCheck/plugins/prj1");
+  //the main dep/linked
+  if (wanted){
+    expect(fs.existsSync(prjRoot + "/node_modules/prj2")).to.be.true;
+    expect(fs.existsSync(prjRoot + "/node_modules/lodash")).to.be.true;
+  } else {
+    expect(fs.existsSync(prjRoot + "/node_modules")).to.be.false;
+  }
+}
+
 describe('npm-workspace install', function() {
   beforeEach(function(done) {
     //clean and create new sandbox
@@ -61,10 +71,11 @@ describe('npm-workspace install', function() {
     var prjRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest/prj1");
     npm_workspace.install(prjRoot).then(function() {
       checkPrj1Install("true");
+      checkRecursiveInstall(false);
       done();
     }).catch(done);
   });
-  
+
   it('should install and link a module (command line)', function(done) {
     var prjRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest/prj1");
     var proc = spawn(NPM_WORKSPACE_EXE, ['install'], {cwd: prjRoot});
@@ -75,11 +86,31 @@ describe('npm-workspace install', function() {
         done(new Error('Wrong code returned ' + code));
       } else {
         checkPrj1Install("true");
+        checkRecursiveInstall(false);
         done();
       }
     });
   });
-  
+
+  ////////////////////////////////////////
+  it('should install and link a workspace in a deep subfolder with recursive flag (command line)', function(done) {
+    var wsRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest");
+    var proc = spawn(NPM_WORKSPACE_EXE, ['install', '-r', '--remove-git'], {cwd: wsRoot});
+    proc.stdout.pipe(process.stdout);
+    proc.stderr.pipe(process.stderr);
+    proc.on('close', function (code) {
+      if(code !== 0) {
+        done(new Error('Wrong code returned ' + code));
+      } else {
+        checkPrj1Install("true");
+        //prj4 is disconnected from others
+        checkPrj4Install();
+        checkRecursiveInstall(true);
+        done();
+      }
+    });
+  });
+  //////////////////////////////////////// 
   
   it('should install and link a workspace (programmatically)', function(done) {
     var wsRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest");
@@ -87,6 +118,7 @@ describe('npm-workspace install', function() {
       checkPrj1Install("true");
       //prj4 is disconnected from others
       checkPrj4Install();
+      checkRecursiveInstall(false);
       done();
     }).catch(done);
   });
@@ -103,6 +135,7 @@ describe('npm-workspace install', function() {
         checkPrj1Install("true");
         //prj4 is disconnected from others
         checkPrj4Install();
+        checkRecursiveInstall(false);
         done();
       }
     });
