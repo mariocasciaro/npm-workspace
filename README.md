@@ -168,6 +168,19 @@ This allows mixed registry sources until `@scope`s are fixed.
     - Otherwise, `npm install` all the remaining modules
 - For each module linked, install or link its `peerDependencies` (recursively)
 
+## npm compatibility
+
+`npm-workspace` should work with `npm` 1, 2 and 3. To support this `npm-workspace` plays a few tricks behind the scenes, including making temporary dummy packages for packages it will later link.
+
+The version of `npm` is checked at the start of an install. If it is not correctly detected, `npm` 2.x is assumed.
+
+The installation of Peer Dependencies depends partly on the `npm` version used, but linked peer dependencies should be correctly fulfilled.
+
+The following `npm` issues currently have direct work-arounds in `npm-workspace`:
+* https://github.com/npm/npm/issues/10343
+* https://github.com/npm/npm/issues/10348
+* https://github.com/npm/npm/issues/9999
+
 ## This is NOT
 
 - The ultimate solution to your Node.js development workflow/private modules/deployment/etc/etc/etc/
