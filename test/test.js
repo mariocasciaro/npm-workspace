@@ -27,9 +27,12 @@ function checkPrj1Install(isLink) {
   
   //is installed?
   expect(fs.existsSync(prjRoot + "/node_modules/prj2/node_modules/lodash")).to.be.true;
-  expect(fs.lstatSync(prjRoot + "/node_modules/prj2/node_modules/prj3").isSymbolicLink()).to.be[isLink];
-  
-  //a peer dep
+
+  if (isLink == "true") { // in npm v3+, prj3 will be flattened down to the same level as prj2 unless it is a link
+    expect(fs.lstatSync(prjRoot + "/node_modules/prj2/node_modules/prj3").isSymbolicLink()).to.be.true;
+  }
+
+  //a direct dep
   expect(fs.existsSync(prjRoot + "/node_modules/graceful-fs")).to.be.true;
   expect(fs.lstatSync(prjRoot + "/node_modules/graceful-fs").isSymbolicLink()).to.be.false;
   
@@ -38,9 +41,6 @@ function checkPrj1Install(isLink) {
   expect(fs.lstatSync(prjRoot + "/node_modules/prj3").isSymbolicLink()).to.be[isLink];
   //is installed?
   expect(fs.existsSync(prjRoot + "/node_modules/prj3/node_modules/when")).to.be.true;
-  
-  //a 2 level recursive peer
-  expect(fs.existsSync(prjRoot + "/node_modules/ncp")).to.be.true;
 }
 
 function checkPrj4Install() {
@@ -54,7 +54,7 @@ function checkRecursiveInstall(wanted) {
   //the main dep/linked
   if (wanted){
     expect(fs.existsSync(prjRoot + "/node_modules/prj2")).to.be.true;
-    expect(fs.existsSync(prjRoot + "/node_modules/lodash")).to.be.true;
+    expect(fs.existsSync(prjRoot + "/node_modules/graceful-fs")).to.be.true;
   } else {
     expect(fs.existsSync(prjRoot + "/node_modules")).to.be.false;
   }
@@ -92,7 +92,6 @@ describe('npm-workspace install', function() {
     });
   });
 
-  ////////////////////////////////////////
   it('should install and link a workspace in a deep subfolder with recursive flag (command line)', function(done) {
     var wsRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest");
     var proc = spawn(NPM_WORKSPACE_EXE, ['install', '-r', '--remove-git'], {cwd: wsRoot});
@@ -110,7 +109,6 @@ describe('npm-workspace install', function() {
       }
     });
   });
-  //////////////////////////////////////// 
   
   it('should install and link a workspace (programmatically)', function(done) {
     var wsRoot = path.resolve(SANDBOX_DIR, "installAndLinkTest");
