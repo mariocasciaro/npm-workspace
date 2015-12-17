@@ -160,6 +160,21 @@ If you have a few dependencies that come from custom registries, you can add a `
 ```
 This allows mixed registry sources until `@scope`s are fixed.
 
+## Workspace only install scripts
+
+Sometimes it will be convenient to execute a script in your modules _only_ during the installation of your workspace.
+To do this, add a script named `npm-workspace:install` to the module's `package.json`:
+
+```javascript
+{
+    "scripts": {
+        "npm-workspace:install": "..."
+    }
+}
+```
+When you execute `npm-workspace install` the script will run after the module has been installed (in the same way that
+`install` or `postinstall` scripts are.
+
 ## Under the hood
 
 - It finds and parse the links from the nearest `workspace.json` up in the current directory tree.
