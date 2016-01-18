@@ -185,9 +185,7 @@ When you execute `npm-workspace install` the script will run after the module ha
 
 ## npm compatibility
 
-`npm-workspace` should work with `npm` 1, 2 and 3. To support this `npm-workspace` plays a few tricks behind the scenes, including making temporary dummy packages for packages it will later link.
-
-The version of `npm` is checked at the start of an install. If it is not correctly detected, `npm` 2.x is assumed.
+`npm-workspace` should work with `npm` 1, 2 and 3. To support this `npm-workspace` takes a conservative approach, with each dependency being added independently.
 
 The installation of Peer Dependencies depends partly on the `npm` version used, but linked peer dependencies should be correctly fulfilled.
 
