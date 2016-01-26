@@ -132,7 +132,7 @@ npm-workspace clean
 
 ## Package an app for deployment
 
-When you are ready to deploy youtr app, you can package all your modules for production, including all your private/local only modules. Just use these 3 options:
+When you are ready to deploy your app, you can package all your modules for production, including all your private/local only modules. Just use these 3 options:
 
 * `-c`: Copy the packages into `node_modules` instead of linking them
 * `-g`: Remove `.git` directories from dependencies while copying. This is so you can package your production app under a new repo (e.g. for use in a PaaS)
