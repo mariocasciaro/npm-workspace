@@ -1,13 +1,9 @@
 {
-  "name": "prj4",
+  "name": "@scp/prj5",
   "version": "0.0.1",
   "private": "true",
   "dependencies": {
-    "when": "*",
-    "aka-test":"*",
-    "@scp/prj5": "*"
   },
   "peerDependencies": {
-    "ncp": "*"
   }
 }
