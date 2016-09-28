@@ -63,7 +63,9 @@ function checkRecursiveInstall(wanted) {
 describe('npm-workspace install', function() {
   beforeEach(function(done) {
     //clean and create new sandbox
-    rimraf.sync(SANDBOX_DIR);
+    if( fs.existsSync(SANDBOX_DIR) ) {
+      rimraf.sync(SANDBOX_DIR);
+    }
     ncp(FIXTURES_DIR, SANDBOX_DIR, done);
   });
   

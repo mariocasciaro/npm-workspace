@@ -1,7 +1,8 @@
 {
   "links": {
     "prj2": "prj2",
-    "prj3": "prj3"
+    "prj3": "prj3",
+    "@scp/prj5": "prj5"
   },
   "repos": {
     "aka-test":"https://registry.npmjs.org/"
